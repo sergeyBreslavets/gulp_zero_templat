@@ -35,6 +35,7 @@ gulp+ bower + npm   template  bs  in box
  |gulpfile.js
  |bower.json
  |src
+ |sprite
  |fonts
  |html
  |images
@@ -72,4 +73,5 @@ gulp+ bower + npm   template  bs  in box
      npm update gulp-strip-debug
      npm update gulp-uglify
      npm update gulp-watch
+     npm update gulp.spritesmith
  ```
