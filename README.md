@@ -51,3 +51,25 @@ gulp+ bower + npm   template  bs  in box
  
  
  ```
+ *проблемы при установке
+ ```
+ npm update зависает на windows 
+ и ничего неработает 
+  удалить папку node_module 
+  и обновить все по одельности 
+     npm install gulp --save-dev
+     npm update browser-sync 
+     npm update imagemin-pngquant
+     npm update rimraf
+     npm updategulp-autoprefixer
+     npm update gulp-concat
+     npm update gulp-cssnano
+     npm update gulp-imagemin
+     npm update gulp-notify
+     npm update gulp-rigger
+     npm update gulp-sass
+     npm update gulp-sourcemaps
+     npm update gulp-strip-debug
+     npm update gulp-uglify
+     npm update gulp-watch
+ ```
