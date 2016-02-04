@@ -15,6 +15,7 @@ var gulp          = require('gulp'),
     notify        = require("gulp-notify"),
     concat        = require('gulp-concat'),
     stripDebug    = require('gulp-strip-debug'),
+    spritesmith   = require('gulp.spritesmith'),
     reload        = browserSync.reload;
 
 
@@ -26,7 +27,9 @@ var path = {
         css:     'www/assets/css/',
         images:  'www/assets/images/',
         fonts:   'www/assets/fonts/',
-        fontBs:  'www/assets/fonts/bootstrap/'
+        fontBs:  'www/assets/fonts/bootstrap/',
+        sprite:  'www/assets/images/sprite/',
+        spriteScss: 'src/style/' 
     },
     src: { //Пути откуда брать исходники
         html:    'src/html/*.html', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
@@ -54,15 +57,16 @@ var path = {
         images:  'src/images/**/*.*', //Синтаксис images/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
         fonts:   'src/fonts/**/*.*',
         fontsBs: 'bower_components/bootstrap-sass/assets/fonts/bootstrap/*.*',
-        fontsAwesome: 'bower_components/components-font-awesome/fonts/*.*' 
+        fontsAwesome: 'bower_components/components-font-awesome/fonts/*.*' ,
+        sprite:   'src/sprite/*.*'
     },
     watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
         html:    'src/html/*.html',
         js:      'src/js/**/*.js',
         style:   'src/style/**/*.scss',
-        images:   'src/images/**/*.*',
-        fonts:   'src/fonts/**/*.*'
-        
+        images:  'src/images/**/*.*',
+        fonts:   'src/fonts/**/*.*',
+        sprite:  'src/sprite/*.*'
     },
     clean: './www/assets'
 };
@@ -79,7 +83,22 @@ var config = {
 
 // tasks 
 
+gulp.task('sprites', function() {
+   var spriteData = 
+        gulp.src(path.src.sprite) // путь, откуда берем картинки для спрайта
+            .pipe(spritesmith({
+                imgName: 'sprite.png',
+                cssName: 'sprite.scss',
+            }))
 
+    spriteData.css.pipe(gulp.dest(path.build.spriteScss))
+    spriteData.img.pipe(gulp.dest(path.build.sprite))
+    .pipe(notify({
+            title: 'sprite',
+            message: 'sprite Complide'
+
+        }));
+});
 
 
 
@@ -169,6 +188,7 @@ gulp.task('fontsbs:build', function() {
 
 
 gulp.task('build', [
+    'sprites',
     'html:build',
     'js:build',
     'style:build',
@@ -193,6 +213,9 @@ gulp.task('watch', function(){
     });
     watch([path.watch.fonts], function(event, cb) {
         gulp.start('fonts:build');
+    });
+    watch([path.watch.sprite], function(event, cb) {
+        gulp.start('sprites');
     });
 });
 
