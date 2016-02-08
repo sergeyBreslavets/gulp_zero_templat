@@ -86,3 +86,29 @@ and update all following the instructions
      npm update gulp-watch
      npm update gulp.spritesmith
  ```
+*pack
+```
+gulp
+gulp-watch
+gulp-autoprefixer
+gulp-uglify
+gulp-sass
+gulp-sourcemaps
+gulp-rigger
+gulp-cssnano
+gulp-imagemin
+imagemin-pngquant
+rimraf
+browser-sync
+gulp-notify
+gulp-concat
+gulp-strip-debug
+gulp.spritesmith
+
+in bower:
+    "normalize.css": "*",
+    "jquery": "2.*",
+    "modernizr": "~2.8.3"
+    "bootstrap-sass": "~3.3.6",
+    "components-font-awesome": "~4.5.0",
+```
