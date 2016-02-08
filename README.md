@@ -1,9 +1,17 @@
 # gulp_zero_template
 gulp+ bower + npm   template  bs  in box
 
-***
+*Installation
+```
+to work to put the NODE https://nodejs.org/en/
+check out node-v
+to execute commands (sudo may not need in windows you have to run the line on behalf of the admin)
+sudo npm install gulp --save-dev
+bower update
+sudo npm update
+change bower.json - name avtor
+```
 * Установка
-
 ```
  для работы поставить NODE  https://nodejs.org/en/
  проверить node -v
@@ -14,7 +22,7 @@ gulp+ bower + npm   template  bs  in box
  измени bower.json - name   avtor
 ```
 
-*команды
+*команды instruction
 ```
     'html:build',
     'js:build',
@@ -23,13 +31,13 @@ gulp+ bower + npm   template  bs  in box
     'fontsbs:build',
     'image:build'
  ```   
- *супер команда 
+ *одна команда для запуска . instruction for start
  ```
- просто gulp - запустить только ее и все 
+ gulp
  ```
- *описание 
+ *описание description
  ```
- структура
+ структура structure
  
  |package.json
  |gulpfile.js
@@ -49,11 +57,14 @@ gulp+ bower + npm   template  bs  in box
  |      |styles.scss
  
  построение идет в www 
- 
- 
+ build to www
  ```
- *проблемы при установке
+ *проблемы при установке 
  ```
+npm update hangs on windows. 
+remove node_module folder 
+and update all following the instructions 
+
  npm update зависает на windows 
  и ничего неработает 
   удалить папку node_module 
