@@ -21,7 +21,7 @@ var gulp          = require('gulp'),
 
 
 var path = {
-    build: { //Тут мы укажем куда складывать готовые после сборки файлы
+    build: { 
         html:    'www/',
         js:      'www/assets/js/',
         css:     'www/assets/css/',
@@ -31,8 +31,8 @@ var path = {
         sprite:  'www/assets/images/sprite/',
         spriteScss: 'src/style/' 
     },
-    src: { //Пути откуда брать исходники
-        html:    'src/html/*.html', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
+    src: { 
+        html:    'src/html/*.html', 
         js:  [     
                  'bower_components/modernizr/modernizr.js',
                  'bower_components/jquery/dist/jquery.js',
@@ -52,15 +52,15 @@ var path = {
         
 
                  'src/js/main.js'
-              ]   ,//В стилях и скриптах нам понадобятся только main файлы
+              ]   ,
         style:   'src/style/styles.scss',
-        images:  'src/images/**/*.*', //Синтаксис images/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
+        images:  'src/images/**/*.*', 
         fonts:   'src/fonts/**/*.*',
         fontsBs: 'bower_components/bootstrap-sass/assets/fonts/bootstrap/*.*',
         fontsAwesome: 'bower_components/components-font-awesome/fonts/*.*' ,
         sprite:   'src/sprite/*.*'
     },
-    watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
+    watch: { 
         html:    'src/html/*.html',
         js:      'src/js/**/*.js',
         style:   'src/style/**/*.scss',
@@ -85,7 +85,7 @@ var config = {
 
 gulp.task('sprites', function() {
    var spriteData = 
-        gulp.src(path.src.sprite) // путь, откуда берем картинки для спрайта
+        gulp.src(path.src.sprite) 
             .pipe(spritesmith({
                 imgName: 'sprite.png',
                 cssName: 'sprite.scss',
@@ -104,40 +104,40 @@ gulp.task('sprites', function() {
 
 // task html
 gulp.task('html:build', function () {
-    gulp.src(path.src.html) //Выберем файлы по нужному пути
-        // .pipe(rigger()) //Прогоним через rigger
-        .pipe(gulp.dest(path.build.html)) //Выплюнем их в папку build  
+    gulp.src(path.src.html) 
+        // .pipe(rigger()) // i am rigger off
+        .pipe(gulp.dest(path.build.html))  
         .pipe(notify({
             title: 'html',
             message: 'html build Complide'
 
         }))
-        .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
+        .pipe(reload({stream: true})); 
       
 });
 
 gulp.task('js:build', function () {
-    gulp.src(path.src.js) //Найдем наш main файл
+    gulp.src(path.src.js) 
         .pipe(concat('main.js'))
         .pipe(stripDebug())
         .pipe(uglify())
-        .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
+        .pipe(gulp.dest(path.build.js)) 
         .pipe(notify({
             title: 'js',
             message: 'js build Complide'
 
         }))
-        .pipe(reload({stream: true})); //И перезагрузим сервер
+        .pipe(reload({stream: true})); 
 });
 
 gulp.task('style:build', function () {
-    gulp.src(path.src.style) //Выберем наш main.scss
-        .pipe(sourcemaps.init()) //То же самое что и с js
-        .pipe(sass().on('error', sass.logError))//Скомпилируем
-        .pipe(prefixer()) //Добавим вендорные префиксы
-        .pipe(cssmin()) //Сожмем
+    gulp.src(path.src.style) 
+        .pipe(sourcemaps.init()) 
+        .pipe(sass().on('error', sass.logError))
+        .pipe(prefixer()) 
+        .pipe(cssmin()) 
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(path.build.css)) //И в build
+        .pipe(gulp.dest(path.build.css)) 
         .pipe(notify({
             title: 'sass',
             message: 'sass build Complide'
@@ -147,14 +147,14 @@ gulp.task('style:build', function () {
 });
 
 gulp.task('image:build', function () {
-    gulp.src(path.src.images) //Выберем наши картинки
-        .pipe(imagemin({ //Сожмем их
+    gulp.src(path.src.images) 
+        .pipe(imagemin({ 
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()],
             interlaced: true
         }))
-        .pipe(gulp.dest(path.build.images)) //И бросим в build
+        .pipe(gulp.dest(path.build.images)) 
          .pipe(notify({
             title: 'images',
             message: 'images compress Complide'
@@ -229,6 +229,6 @@ gulp.task('clean', function (cb) {
 
 gulp.task('default', [
           'build', 
-          // 'webserver',  --нужно сконфигурировать 
+          // 'webserver',  --need config mb/ but he work 
           'watch'
 ]);
