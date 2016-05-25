@@ -1,0 +1,80 @@
+.navbar{
+    background: #fff;
+    min-height: 94px;
+    .navbar-header{
+        padding: 5px 0px;
+        min-height: 94px;
+        .navbar-brand{
+            padding: 0px;
+            margin-right: 16px;
+        }
+    }  
+    .navbar-nav{
+        margin-top: 25px;
+    }
+    .nav>li{
+        margin-right: 20px;
+    }
+    .nav>li>a{
+     border-radius: 5px;
+     font-size: 18px;
+     color: #868686;
+     padding: 15px 20px;
+     text-transform: uppercase;
+    }
+    .nav>li>a:hover {
+     background: #aad9d8;  
+     color: #fff;
+    }
+    .activ_menu>a {
+     background: #aad9d8;  
+     color: #fff !important;
+    }
+    
+    .btn_req{
+        position: relative;
+        width: 191px;
+        margin-left: 100px;
+    }
+    .btn_req>a{
+        position: absolute;
+        text-align: center;
+        background: #00977a;
+        color: #fff !important;
+        bottom: -63px;
+        &:hover{
+            opacity: 1;
+        background: #00977a;
+        color: #fff; 
+        }
+    }
+
+@media (min-width:$screen-md-min) and (max-width:$screen-md-max) { 
+     .nav>li{
+        margin-right: 10px;
+    }
+    .btn_req{
+        margin-left: 20px;
+    }
+ }
+@media (min-width:$screen-md-min) and (max-width:1065px) { 
+    
+    .btn_req{
+        display:   none;
+    }
+    .btn_req_xs{
+        display: block !important;
+    }
+ }
+    .btn_req_xs>a{
+        background: #00977a;
+        color: #fff !important; 
+    }
+    .navbar-toggle{
+        border: 1px solid #000;
+        margin-top: 25px;
+        .icon-bar{
+            background: #000;
+        }
+    }
+}

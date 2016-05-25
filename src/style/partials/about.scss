@@ -1,0 +1,51 @@
+.about {
+    margin-bottom: 30px;
+    
+    h1{
+        margin-bottom: 40px;
+    }
+    .media {
+       
+        @media (max-width: $screen-xs-max) {  width: 100%; }
+        @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {  width:100%; }
+        @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {  width:80%; }
+        @media (min-width: $screen-lg-min) {  width: 60%; }
+                
+        
+        
+       
+         .media-heading {
+                font-family: 'Lato';
+                font-weight: 700;
+                font-style: normal;
+                color: #394b50;
+                font-size: 20px;
+                margin-bottom: 20px;
+                text-transform: uppercase;
+            }
+    }
+    
+    
+     .media-body p{
+            font-family: "Open Sans";
+            font-weight: normal !important;
+            font-style: normal;
+            font-size: 12px;
+            color: #7b7b7b;
+            
+           
+        }
+}
+
+.about__bnt{
+    margin-top: 30px;
+    background-color: #aad9d8;
+    font-family: 'Lato';
+      font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    border-radius: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 15px 30px;
+}

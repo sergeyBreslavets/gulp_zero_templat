@@ -1,0 +1,24 @@
+.banner__sub_title{
+     font-family: 'Lato';
+   display: inline-block;
+   color: #000;
+   font-weight: 400;
+    font-style: italic;
+    font-size: 20px;
+    @media (max-width:$screen-xs-max) { font-size: 14px; }
+@media (min-width:$screen-sm-min) and (max-width:$screen-sm-max)  {font-size: 18px;  }
+    
+}
+.banner{
+    background-color: #aad9d8;
+    padding-top: 72px;
+   	background-image: url(../images/bg.jpg);
+    background-repeat:  no-repeat;
+    
+    background-size: contain;
+    background-position: top;
+@media (max-width:$screen-xs-max) { min-height: 200px; padding-top: 10px;}
+@media (min-width:$screen-sm-min) and (max-width:$screen-sm-max)  {min-height: 320px; padding-top: 30px; }
+@media (min-width:$screen-md-min) and (max-width:$screen-md-max) {  min-height: 664px; }
+@media (min-width:$screen-lg-min) {  min-height: 664px; }
+}

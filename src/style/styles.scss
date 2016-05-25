@@ -6,6 +6,7 @@ $icon-font-path: '../fonts/bootstrap/' !default;
 
 @import "bower_components/components-font-awesome/scss/font-awesome";
 
+$grid-float-breakpoint:     1065px !default;
 
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
@@ -65,3 +66,8 @@ $icon-font-path: '../fonts/bootstrap/' !default;
 @import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
 
 @import "sprite";
+@import "partials/fonts";
+@import "partials/nav_bar";
+@import "partials/banner";
+@import "partials/about";
+@import "partials/sponsor"; 
